@@ -158,8 +158,10 @@ but this makes me wonder whether we can sort descending, limit to the first 10, 
 
 ### 19. All the companies that have been founded between 2000 and 2010, but have not been acquired before 2011.
 
-<!-- Note: "have not been acquired before 2011" is not the same as "have been acquired in or after 2011", need to make sure to 
-include companies that have not been acquired at all, as those also have not been acquired before 2011 -->
+<!-- First approach: "have not been acquired before 2011" is not the same as "have been acquired in or after 2011", need to make sure to 
+include companies that have not been acquired at all, as those also have not been acquired before 2011
+
+second approach: translate the query more literal by using nor to only show those companies that have not been acquired before 2011 -->
 
 - **QUERY**: `{founded_year: {$gte: 2000, $lte: 2010}, $nor: [{"acquisition.acquired_year": {$lt: 2011}}]}`
 - **PROJECT**: `` 
