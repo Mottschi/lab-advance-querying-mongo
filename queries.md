@@ -161,7 +161,7 @@ but this makes me wonder whether we can sort descending, limit to the first 10, 
 <!-- Note: "have not been acquired before 2011" is not the same as "have been acquired in or after 2011", need to make sure to 
 include companies that have not been acquired at all, as those also have not been acquired before 2011 -->
 
-- **QUERY**: `{founded_year: {$gte: 2000, $lte: 2010}, $or: [{"acquisition.acquired_year": {$gte: 2011}}, {acquisition: null}]}`
+- **QUERY**: `{founded_year: {$gte: 2000, $lte: 2010}, $nor: [{"acquisition.acquired_year": {$lt: 2011}}]}`
 - **PROJECT**: `` 
 - **SORT**: ``
 - **LIMIT**: ``
